@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import Styles from '@styles';
+import colors from '@styles/colors.style';
 
 import {useTheme} from '@context/theme.context';
 
@@ -20,10 +21,33 @@ export interface ITextInputProps extends TextInputProps {
 
 const CustomTextInput = React.forwardRef(
   (
-    {style, startIcon, endIcon, variant, ...props}: ITextInputProps,
+    {
+      style,
+      startIcon,
+      endIcon,
+      variant,
+      onFocus,
+      onBlur,
+      ...props
+    }: ITextInputProps,
     ref: any,
   ) => {
     const {isDark, theme} = useTheme();
+    const [focused, setFocused] = React.useState(false);
+
+    const _onFocus = (e: any) => {
+      setFocused(true);
+      if (onFocus) {
+        onFocus(e);
+      }
+    };
+
+    const _onBlur = (e: any) => {
+      setFocused(false);
+      if (onBlur) {
+        onBlur(e);
+      }
+    };
 
     return (
       <View
@@ -34,11 +58,15 @@ const CustomTextInput = React.forwardRef(
             borderColor: theme.palette.border,
             borderWidth: 1,
           },
+          focused && styleLayouts.focused,
           style,
         ]}>
         {startIcon && <View style={styleLayouts.startIcon}>{startIcon}</View>}
         <TextInput
           ref={ref}
+          onFocus={_onFocus}
+          onBlur={_onBlur}
+          placeholderTextColor={theme.palette.text.hint}
           keyboardAppearance={isDark ? 'dark' : 'light'}
           style={[styleLayouts.textInput, {color: theme.palette.text.primary}]}
           {...props}
@@ -52,6 +80,7 @@ const CustomTextInput = React.forwardRef(
 CustomTextInput.defaultProps = {
   variant: 'normal',
   maxLength: 100,
+  selectionColor: colors.primary.main,
 };
 
 const styleLayouts = StyleSheet.create({
@@ -64,7 +93,6 @@ const styleLayouts = StyleSheet.create({
     paddingVertical: Styles.gutter.component,
     paddingHorizontal: Styles.gutter.container,
     textAlign: I18nManager.isRTL ? 'right' : 'left',
-    height: Styles.verticalScale(40),
   },
   startIcon: {
     marginRight: Styles.gutter.text,
@@ -73,6 +101,10 @@ const styleLayouts = StyleSheet.create({
     marginLeft: Styles.gutter.text,
   },
   textInput: {flex: 1, padding: 0},
+  focused: {
+    borderColor: colors.primary.main,
+    borderWidth: 1,
+  },
 });
 
 export {CustomTextInput as TextInput};

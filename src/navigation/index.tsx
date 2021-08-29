@@ -11,18 +11,17 @@ import LoginNavigation from './login.navigation';
 const Stack = createStackNavigator();
 
 const MainNavigation = () => {
-  const {isDark, theme} = useTheme();
+  const {isDark} = useTheme();
 
   return (
-    <SafeAreaView
-      style={{flex: 1, backgroundColor: theme.palette.background.body}}>
+    <>
       <StatusBar barStyle={isDark ? 'light-content' : 'dark-content'} />
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name={MainStack.Login} component={LoginNavigation} />
         <Stack.Screen name={MainStack.Dashboard} component={Dashboard} />
         <Stack.Screen name={MainStack.Home} component={Home} />
       </Stack.Navigator>
-    </SafeAreaView>
+    </>
   );
 };
 

@@ -1,15 +1,20 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
+import {StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-import {Button, View, TextInput} from '@components';
-import Styles from '@styles';
+import {Button, TextInput, View} from '@components';
 
-const PhoneSearch = ({navigation}: any) => {
+const PhoneSearch = () => {
   const {t} = useTranslation();
+  const navigation = useNavigation();
+
   return (
     <View flexDirection="row">
-      <TextInput style={styles.input} />
+      <TextInput
+        placeholder={t('login.search_country_hint')}
+        style={styles.input}
+      />
       <Button
         onPress={() => navigation.goBack()}
         label={t('action.cancel')}

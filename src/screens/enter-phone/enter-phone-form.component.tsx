@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 
@@ -29,6 +29,7 @@ const EnterPhoneForm = ({goToPhoneScreen, country}: IProps) => {
   const [state, setState] = useState({
     country: {},
   });
+  const inputRef = useRef(null);
   const {t} = useTranslation();
 
   useEffect(() => {
@@ -36,7 +37,11 @@ const EnterPhoneForm = ({goToPhoneScreen, country}: IProps) => {
       ...prevState,
       country: country ? {...country} : {...countryDef},
     }));
-  }, [country, setState]);
+
+    if (country) {
+      inputRef.current?.focus();
+    }
+  }, [country, setState, inputRef]);
 
   const onChangeText = () => {
     setState(prevState => ({...prevState}));
@@ -44,11 +49,13 @@ const EnterPhoneForm = ({goToPhoneScreen, country}: IProps) => {
 
   return (
     <View style={styles.root}>
-      <Text variant="h1">Login</Text>
+      <Image style={styles.logo} source={require('@assets/icons/logo.png')} />
+      <Text variant="h1">{t('login.sign_in')}</Text>
       <View style={styles.form} flexDirection="row">
         <FieldInput
-          label={t('login.mobile')}
+          label={t('login.phone_number')}
           inputProps={{
+            ref: inputRef,
             onChangeText: onChangeText,
             startIcon: (
               <TouchableOpacity onPress={goToPhoneScreen} flexDirection="row">
@@ -72,6 +79,7 @@ const EnterPhoneForm = ({goToPhoneScreen, country}: IProps) => {
 };
 
 const styles = StyleSheet.create({
+  logo: {marginBottom: Styles.gutter.container, width: 58, height: 58},
   root: {
     marginTop: Styles.gutter.container * 8,
   },

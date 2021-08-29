@@ -25,7 +25,7 @@ const EnterPhone = ({route: {params}}: any) => {
   };
 
   return (
-    <ScreenLayout>
+    <ScreenLayout style={{backgroundColor: 'transparent'}}>
       <KeyboardAvoidingView style={styles.root}>
         <Form country={params?.country} goToPhoneScreen={goToPhoneScreen} />
         <View flexDirection={'row'} justifyContent="flex-end">
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   button: {
-    width: Styles.moderateScale(50),
-    height: Styles.moderateScale(50),
+    width: Styles.moderateScale(45),
+    height: Styles.moderateScale(45),
   },
   icon: {width: Styles.moderateScale(20), height: Styles.moderateScale(30)},
 });

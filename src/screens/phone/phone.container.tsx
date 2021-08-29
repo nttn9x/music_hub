@@ -8,8 +8,8 @@ import usePhoneHook from './phone.hook';
 import PhoneSearch from './phone-search.component';
 import PhoneData from './phone-list.component';
 
-const Phone = ({navigation}: any) => {
-  const {firstLoad} = usePhoneHook({navigation});
+const Phone = () => {
+  const {firstLoad} = usePhoneHook();
   return (
     <ScreenLayout style={styles.root}>
       <PhoneSearch />

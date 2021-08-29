@@ -4,6 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
 import Styles from '@styles';
+import Colors from '@styles/colors.style';
 import {MainStack} from '@constants';
 import {useTheme} from '@context/theme.context';
 import {
@@ -79,7 +80,10 @@ const EnterOTP = () => {
                   onPress={onOTPPress}
                   style={[
                     styles.otp,
-                    selected && {borderColor: text.primary, borderWidth: 1},
+                    selected && {
+                      borderColor: Colors.primary.main,
+                      borderWidth: 1,
+                    },
                     {backgroundColor: background.paper},
                   ]}>
                   <Text variant="h4">{otp[i]}</Text>
@@ -120,6 +124,7 @@ const styles = StyleSheet.create({
     height: 0,
     paddingVertical: 0,
     paddingHorizontal: 0,
+    borderWidth: 0,
   },
 });
 

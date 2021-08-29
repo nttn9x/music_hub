@@ -1,9 +1,11 @@
 {
     "login": {
         "send": "Send",
-        "mobile": "Mobile",
+        "sign_in": "Sign in",
+        "phone_number": "Phone number",
         "verify": "Verify",
         "otp_note": "Input your OTP code sent via SMS",
+        "search_country_hint": "Please enter keywords to search",
     },
     "action": {
         "cancel": "Cancel"

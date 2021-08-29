@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {useTheme} from '@context/theme.context';
 
 const ScreenLayout = ({style, ...props}: any) => {
@@ -10,10 +10,12 @@ const ScreenLayout = ({style, ...props}: any) => {
     },
   } = useTheme();
   return (
-    <View
-      style={[styles.root, {backgroundColor: background.body}, style]}
-      {...props}
-    />
+    <SafeAreaView style={{flex: 1, backgroundColor: background.body}}>
+      <View
+        style={[styles.root, {backgroundColor: background.body}, style]}
+        {...props}
+      />
+    </SafeAreaView>
   );
 };
 
