@@ -1,0 +1,11 @@
+{
+    "login": {
+        "send": "Send",
+        "mobile": "Mobile",
+        "verify": "Verify",
+        "otp_note": "Input your OTP code sent via SMS",
+    },
+    "action": {
+        "cancel": "Cancel"
+    }
+}
