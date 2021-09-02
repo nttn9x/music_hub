@@ -59,7 +59,6 @@ const Button = ({
             <Text
               style={[
                 styleTypes.text,
-                {color: text.primary},
                 variant === 'contained' && styleTypes.containedText,
                 color === 'primary' && styleTypes.containedTextPrimary,
                 styleText,
@@ -88,8 +87,9 @@ const styleLayouts = StyleSheet.create({
 
 const styleTypes = StyleSheet.create({
   text: {
+    color: '#000',
     textAlign: 'center',
-    fontFamily: Styles.fontFamily.medium,
+    fontFamily: Styles.fontFamily.bold,
     fontSize: Styles.normalize(16),
   },
 

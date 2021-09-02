@@ -18,8 +18,8 @@ const MainNavigation = () => {
     <>
       <StatusBar barStyle={isDark ? 'light-content' : 'dark-content'} />
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name={MainStack.Public} component={NonAuthNavigation} />
         <Stack.Screen name={MainStack.Private} component={AuthNavigation} />
+        <Stack.Screen name={MainStack.Public} component={NonAuthNavigation} />
       </Stack.Navigator>
     </>
   );

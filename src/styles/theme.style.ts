@@ -22,6 +22,7 @@ export const lightTheme = {
     background: {
       body: '#f5f5f5',
       paper: '#fff',
+      linearGradient: ['#ffd6c8', '#fff'],
     },
   },
 };
@@ -32,8 +33,9 @@ export const darkTheme = {
     border: '#D9D9D9',
     error: '#FF4D4F',
     background: {
-      body: '#303030',
+      body: '#17191D',
       paper: '#424242',
+      linearGradient: ['#2C3137', '#17191D'],
     },
     text: {
       primary: '#fff',

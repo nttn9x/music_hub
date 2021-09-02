@@ -14,9 +14,10 @@ interface IHeader extends ViewProps {
   classes?: any;
   goBack?: any;
   title?: string;
+  iconSource?: any;
 }
 
-const Header = ({style, title, goBack, ...props}: IHeader) => {
+const Header = ({style, title, goBack, iconSource, ...props}: IHeader) => {
   const {
     theme: {
       palette: {text},
@@ -38,10 +39,10 @@ const Header = ({style, title, goBack, ...props}: IHeader) => {
       <TouchableOpacity onPress={onBack}>
         <Image
           style={[styles.icon, {tintColor: text.primary}]}
-          source={require('@assets/icons/back.png')}
+          source={iconSource || require('@assets/icons/back.png')}
         />
       </TouchableOpacity>
-      <Text style={styles.title} align="center" variant="h4">
+      <Text style={styles.title} align="center" variant="h5">
         {title}
       </Text>
       <View style={styles.icon}></View>
@@ -52,6 +53,7 @@ const Header = ({style, title, goBack, ...props}: IHeader) => {
 const styles = StyleSheet.create({
   root: {
     marginHorizontal: Styles.gutter.container,
+    height: 40,
   },
   icon: {
     width: Styles.moderateScale(14),
