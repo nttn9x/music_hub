@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Text, TouchableOpacity, View} from '@components';
 import {phoneListSelector} from '@my-store/modules/phone-list/phone-list.selector';
 import Styles from '@styles';
-import {LoginStack} from '@constants';
+import {NonAuthStack} from '@constants';
 
 const PhoneData = () => {
   const {data} = useSelector(phoneListSelector);
@@ -15,7 +15,7 @@ const PhoneData = () => {
   const onRenderItem = ({item}: any) => {
     const onItemPress = () => {
       navigation.navigate({
-        name: LoginStack.EnterPhone,
+        name: NonAuthStack.EnterPhone,
         params: {country: item},
         merge: true,
       });

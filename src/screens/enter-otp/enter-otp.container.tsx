@@ -1,59 +1,38 @@
-import React, {useRef, useState} from 'react';
-import {StyleSheet} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
-
-import Styles from '@styles';
-import Colors from '@styles/colors.style';
-import {MainStack} from '@constants';
-import {useTheme} from '@context/theme.context';
 import {
   Button,
-  TextInput,
+  Header,
+  KeyboardAvoidingView,
   ScreenLayout,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
-  KeyboardAvoidingView,
-  Header,
 } from '@components';
-
+import {useTheme} from '@context/theme.context';
+import Styles from '@styles';
+import Colors from '@styles/colors.style';
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {StyleSheet} from 'react-native';
 import EnterOTPCursor from './enter-otp-cursor';
-
-const OTP_LENGTH = 6;
+import useHook, {OTP_LENGTH} from './enter-otp.hook';
 
 const EnterOTP = () => {
   const {t} = useTranslation();
-  const refInput = useRef(null);
-  const [otp, setOTP] = useState('');
-  const [focused, setFocus] = useState(true);
+  const {
+    refInput,
+    otp,
+    focused,
+    goToDashboardScreen,
+    onOTPChange,
+    onOTPBlur,
+    onOTPPress,
+  } = useHook();
   const {
     theme: {
       palette: {background, text},
     },
   } = useTheme();
-  const navigation = useNavigation();
-
-  const goToDashboardScreen = () => {
-    navigation.navigate(MainStack.Home);
-  };
-
-  const onOTPPress = () => {
-    refInput.current?.focus();
-    setFocus(true);
-  };
-
-  const onOTPBlur = () => {
-    setFocus(false);
-  };
-
-  const onOTPChange = (text: string) => {
-    if (text.length > OTP_LENGTH) {
-      return;
-    }
-
-    setOTP(text);
-  };
 
   return (
     <ScreenLayout>

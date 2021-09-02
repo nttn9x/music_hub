@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import Styles from '@styles';
-import {LoginStack} from '@constants';
+import {NonAuthStack} from '@constants';
 import {
   IconButton,
   ScreenLayout,
@@ -17,11 +17,11 @@ const EnterPhone = ({route: {params}}: any) => {
   const navigation = useNavigation();
 
   const goToOTPScreen = () => {
-    navigation.navigate(LoginStack.EnterOTP);
+    navigation.navigate(NonAuthStack.EnterOTP);
   };
 
   const goToPhoneScreen = () => {
-    navigation.navigate(LoginStack.Phone);
+    navigation.navigate(NonAuthStack.Phone);
   };
 
   return (

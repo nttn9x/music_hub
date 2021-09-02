@@ -1,11 +1,15 @@
 export enum MainStack {
+  Private = 'Private',
+  Public = 'Public',
+}
+
+export enum AuthStack {
   Dashboard = 'Dashboard',
   Home = 'Home',
-  Login = 'Login',
   Profile = 'Profile',
 }
 
-export enum LoginStack {
+export enum NonAuthStack {
   EnterPhone = 'EnterPhone',
   EnterOTP = 'EnterOTP',
   Phone = 'Phone',
