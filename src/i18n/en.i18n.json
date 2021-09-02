@@ -8,6 +8,10 @@
         "search_country_hint": "Please enter keywords to search",
     },
     "action": {
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "logout": "Log out",
+    },
+    "profile": {
+        "title": "Profile"
     }
 }

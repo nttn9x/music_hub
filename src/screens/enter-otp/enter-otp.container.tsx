@@ -15,6 +15,7 @@ import {
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
+  Header,
 } from '@components';
 
 import EnterOTPCursor from './enter-otp-cursor';
@@ -34,7 +35,7 @@ const EnterOTP = () => {
   const navigation = useNavigation();
 
   const goToDashboardScreen = () => {
-    navigation.navigate(MainStack.Dashboard);
+    navigation.navigate(MainStack.Home);
   };
 
   const onOTPPress = () => {
@@ -55,8 +56,9 @@ const EnterOTP = () => {
   };
 
   return (
-    <ScreenLayout style={styles.root}>
-      <KeyboardAvoidingView>
+    <ScreenLayout>
+      <Header />
+      <KeyboardAvoidingView style={styles.root}>
         <Text style={styles.title} align="center" variant="h6">
           {t('login.otp_note')}
         </Text>
@@ -82,7 +84,7 @@ const EnterOTP = () => {
                     styles.otp,
                     selected && {
                       borderColor: Colors.primary.main,
-                      borderWidth: 1,
+                      borderWidth: 2,
                     },
                     {backgroundColor: background.paper},
                   ]}>
@@ -93,7 +95,7 @@ const EnterOTP = () => {
             })}
         </View>
         <Button
-          disabled={otp.length < OTP_LENGTH}
+          // disabled={otp.length < OTP_LENGTH}
           onPress={goToDashboardScreen}
           label={t('login.verify')}
         />

@@ -112,7 +112,7 @@ const styleTypes = StyleSheet.create({
   },
 
   containedTextPrimary: {
-    color: colors.primary.main,
+    color: '#fff',
   },
 
   disabled: {

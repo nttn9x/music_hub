@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Button, ScreenLayout, View, TextInput} from '@components';
+import {Button, ScreenLayout, View} from '@components';
 import Styles from '@styles';
 
 import usePhoneHook from './phone.hook';
@@ -12,14 +12,17 @@ const Phone = () => {
   const {firstLoad} = usePhoneHook();
   return (
     <ScreenLayout style={styles.root}>
-      <PhoneSearch />
-      {!firstLoad && <PhoneData />}
+      <View style={styles.body}>
+        <PhoneSearch />
+        {!firstLoad && <PhoneData />}
+      </View>
     </ScreenLayout>
   );
 };
 
 const styles = StyleSheet.create({
-  root: {flex: 1, padding: Styles.gutter.container},
+  root: {flex: 1},
+  body: {padding: Styles.gutter.container},
 });
 
 export default Phone;

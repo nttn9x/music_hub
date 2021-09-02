@@ -7,6 +7,8 @@ import Styles from '@styles';
 import {StyleSheet, View} from 'react-native';
 import {MainStack} from '@constants';
 
+import Header from './home-header.component';
+
 const Home = () => {
   const {t} = useTranslation('account');
   const navigation = useNavigation();
@@ -17,6 +19,7 @@ const Home = () => {
 
   return (
     <ScreenLayout>
+      <Header />
       <View style={styles.root}>
         <Button
           onPress={goToDashboardScreen}

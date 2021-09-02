@@ -4,7 +4,6 @@ import {StyleSheet} from 'react-native';
 
 import {
   Text,
-  TextInput,
   View,
   Image,
   Divider,
@@ -49,8 +48,7 @@ const EnterPhoneForm = ({goToPhoneScreen, country}: IProps) => {
 
   return (
     <View style={styles.root}>
-      <Image style={styles.logo} source={require('@assets/icons/logo.png')} />
-      <Text variant="h1">{t('login.sign_in')}</Text>
+      <Text variant="h2">{t('login.sign_in')}</Text>
       <View style={styles.form} flexDirection="row">
         <FieldInput
           label={t('login.phone_number')}
@@ -79,9 +77,8 @@ const EnterPhoneForm = ({goToPhoneScreen, country}: IProps) => {
 };
 
 const styles = StyleSheet.create({
-  logo: {marginBottom: Styles.gutter.container, width: 58, height: 58},
   root: {
-    marginTop: Styles.gutter.container * 8,
+    marginTop: Styles.gutter.container * 10,
   },
   form: {
     marginTop: Styles.gutter.container * 2,
